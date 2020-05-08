@@ -27,5 +27,10 @@ public static void main(String[] args) {
 	System.out.println(merge);
 	*/
 	
+	Person person = context.getBean("p",Person.class);
+	System.out.println(person);
+	
+	CustomScope custom = context.getBean("customScope",CustomScope.class);
+	System.out.println(custom.getConversationId());
 }
 }

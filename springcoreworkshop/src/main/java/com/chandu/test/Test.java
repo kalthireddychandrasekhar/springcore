@@ -1,7 +1,9 @@
 package com.chandu.test;
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
@@ -26,10 +28,21 @@ public class Test {
 		 context.getBean("b",B.class);*/
 		
 		//lifec cycle
-		/*context.getBean("lifeCycle", BeanLifeCycle.class);*/
+		/*context.getBean("lifeCycle", BeanLifeCycle.class);  */
 		
-		 context.getBean("factory",Client.class);
-		 context.getBean("client",Client.class);
+		/*factory-method*/
+		/* context.getBean("factory",Client.class);
+		 context.getBean("client",Client.class);  
+		System.out.println(context.getType("factory"));*/
+		
+		/*ImportResources*/
+	/*AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfigC.class);
+		BeanA bean = context.getBean(BeanA.class);
+		bean.doSomething();
+		BeanB bean2 = context.getBean("chandu",BeanB.class);
+		bean2.doSomething();
+		BeanC bean3 = context.getBean(BeanC.class);
+		bean3.doSomething();*/
 		
 	}
 

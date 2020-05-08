@@ -5,28 +5,48 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context
-          http://www.springframework.org/schema/context/spring-context.xsd">
+          http://www.springframework.org/schema/context/spring-context.xsd" >  <!-- default-autowire-candidates=""  excluding the autowire at container lever-->
 
 
 	<!-- byName -->
-	<bean id="address" class="com.chandu.springcoreworkshop.Address">
+	<bean id="address" class="com.chandu.springcoreworkshop.Address" primary="true" >
 		<property name="city" value="nellore" />
 		<property name="state" value="A.P" />
 		<property name="country" value="india" />
 	</bean>
+	
+	<!-- autowire-candidate="false" & primary="true"  avoiding the ambiguity -->
+	
+	<!-- <bean id="address1" class="com.chandu.springcoreworkshop.Address" autowire-candidate="false" >
+		<property name="city" value="hyderabad" />
+		<property name="state" value="telangana" />
+		<property name="country" value="india" />
+	</bean> -->
 
-	<!-- <bean id="student" class="com.chandu.springcoreworkshop.Student"
+	<bean id="student" class="com.chandu.springcoreworkshop.Student"
 		autowire="byName">
 		<property name="studentId" value="100" />
-	</bean> -->
+	</bean>
 	<!-- byType -->
-	<bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="byType"> 
-		<property name="studentId" value="100"></property> </bean>
+	<!-- <bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="byType"> 
+		<property name="studentId" value="100"></property> 
 		
-	<bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="byType"> 
-		<property name="studentId" value="100"></property> </bean>
+		</bean> -->
 
 	<!-- constructor -->
 	<!-- <bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="constructor"> 
 		<constructor-arg name="studentId" value="100"/> </bean> -->
+		
+<!-- 	custom bean creation -->	
+	<bean id="customScope" class="com.chandu.springcoreworkshop.CustomScope"/>
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+	<property name="scopes">
+	<map>
+	<entry key="custom"> <ref bean="customScope" /></entry>
+	</map>
+	</property>
+	</bean>
+	<bean id="p" class="com.chandu.springcoreworkshop.Person" scope="custom"/>
+	
+		
 </beans>          

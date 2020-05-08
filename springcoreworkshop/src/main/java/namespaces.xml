@@ -67,9 +67,14 @@
 		<!-- bean lifecycle -->
 		<!-- <bean id="lifeCycle" class="com.chandu.test.BeanLifeCycle"/> -->
 		
-		 <bean id="factory" class="com.chandu.test.Client" factory-method="createInstance"/> 
+		
+		 <!-- factory-method -->
+		<!--  <bean id="factory" class="com.chandu.test.Client" factory-method="createInstance"/> 
 			
 		<bean id="service" class="com.chandu.test.ServiceProvider"/>
-		<bean id="client" factory-bean="service" factory-method="createClintInstance"/>	
+		<bean id="client" factory-bean="service" factory-method="createClintInstance"/> -->	
 		
+	<!-- 	importResource & alias name -->
+		<!-- <bean id="beanB" class="com.chandu.test.BeanB"/>
+		<alias name="beanB" alias="chandu"/> -->
 </beans>          
