@@ -15,13 +15,16 @@
 		<property name="country" value="india" />
 	</bean>
 
-	<bean id="student" class="com.chandu.springcoreworkshop.Student"
+	<!-- <bean id="student" class="com.chandu.springcoreworkshop.Student"
 		autowire="byName">
 		<property name="studentId" value="100" />
-	</bean>
+	</bean> -->
 	<!-- byType -->
-	<!-- <bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="byType"> 
-		<property name="studentId" value="100"></property> </bean> -->
+	<bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="byType"> 
+		<property name="studentId" value="100"></property> </bean>
+		
+	<bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="byType"> 
+		<property name="studentId" value="100"></property> </bean>
 
 	<!-- constructor -->
 	<!-- <bean id="student" class="com.chandu.springcoreworkshop.Student" autowire="constructor"> 
