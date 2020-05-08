@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean id="address" class="com.chandu.springcoreworkshop.Address">
+		<property name="city" value="nellore"/>
+		<property name="state" value="A.P"/>
+		<property name="country" value="india"/>
+	</bean>
+	<bean id="department" class="com.chandu.springcoreworkshop.Department">
+	<constructor-arg name="deptId" value="100" index="0" type="int"/>
+	<constructor-arg name="deptName" value="software" index="1" type="String"/>
+	</bean>
+	
+	<bean id="employee" class="com.chandu.springcoreworkshop.Employee" 
+	init-method="init" destroy-method="destroy">
+		<property name="id" value="1" />
+		<property name="name" value="chandu" />	  
+		<property name="address" ref ="address"/>
+		<property name="department" ref="department"/>
+		<property name="theList">
+		  <list>
+		  <value>abc</value>
+		  <value>1234</value>
+		  </list>
+		</property>
+		<property name="theSet">
+		<set>
+		<value>abc</value>
+		<value>abc</value>
+		<value>321</value>
+		</set>
+		</property>
+		<property name="theMap">
+		<map>
+		<entry key="A" value="a"/>
+		<entry key="A" value="a"/>
+		</map>
+		</property>
+		<property name="theProperties">
+			<props>
+			<prop key="a">chandu</prop>
+			<prop key="b">bujji</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- Bean scopes -->
+	
+	<!-- <bean id="employeeScope" class="com.chandu.springcoreworkshop.Employee" scope="prototype">
+		<property name="id" value="1" />
+		<property name="name" value="chandu" />	  
+		<property name="address" ref ="address"/>
+		<property name="department" ref="department"/>
+	</bean> -->
+
+
+
+</beans>          

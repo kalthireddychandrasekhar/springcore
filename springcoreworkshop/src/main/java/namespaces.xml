@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd" >  <!-- default-lazy-init="true" -->
+        
+         <bean id="address" class="com.chandu.springcoreworkshop.Address"
+        p:city="chennai"
+        p:state="tamilanadu"
+        p:country="india" />
+        
+        <bean id="department" class="com.chandu.springcoreworkshop.Department"
+        c:deptId="101" 
+        c:deptName="sales"
+        /> 
+        
+        
+        <!-- constructor resolution -->
+       <!--  <bean id="resolution" class="com.chandu.springcoreworkshop.One">
+        <constructor-arg ref="two" />
+       <constructor-arg ref="three" />
+       </bean>
+        
+        <bean id="two" class="com.chandu.springcoreworkshop.Two"/>
+        <bean id="three" class="com.chandu.springcoreworkshop.Three"/> -->
+        
+        
+        <!-- innerbean -->
+        <!--  <bean id="outerBean" class="com.chandu.springcoreworkshop.One">
+         <property name="two">
+         	<bean class="com.chandu.springcoreworkshop.Two">
+         		<property name="id" value="111"/>
+         		<property name="name" value="abcd"/>
+         	</bean>
+         </property>
+         </bean> -->
+         
+         
+         <!-- compound property -->
+         <!-- <bean id="c" class="com.chandu.test.C">
+         <property name="message" value="compound property"/>
+         </bean>
+         
+         <bean id="b" class="com.chandu.test.B">
+         <property name="c" ref="c"/>
+         </bean>
+         
+          <bean id="compound" class="com.chandu.test.A">
+         <property name="b" ref="b"/>
+         <property name="b.c.message" value="compound property is ran successfully.."></property>
+         </bean> -->
+         
+         <!-- depends-on -->
+         
+		<!-- <bean id="a" class="com.chandu.test.A" depends-on="b"/>
+		<bean id="b" class="com.chandu.test.B" depends-on="c"/>
+		<bean id="c" class="com.chandu.test.C"/> -->
+		
+		 <!-- lazy loading -->
+         
+		 <!-- <bean id="a" class="com.chandu.test.A" />
+		<bean id="b" class="com.chandu.test.B" lazy-init="true" />
+		<bean id="c" class="com.chandu.test.C"/> --> 
+		
+		<!-- bean lifecycle -->
+		<!-- <bean id="lifeCycle" class="com.chandu.test.BeanLifeCycle"/> -->
+		
+		 <bean id="factory" class="com.chandu.test.Client" factory-method="createInstance"/> 
+			
+		<bean id="service" class="com.chandu.test.ServiceProvider"/>
+		<bean id="client" factory-bean="service" factory-method="createClintInstance"/>	
+		
+</beans>          

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- lookup metod -->
+	<bean id="mySingleton"
+		class="com.chandu.springcoreworkshop.MySingleton">
+		<lookup-method name="createPrototype" bean="myPrototype" />
+	</bean>
+
+	<bean id="myPrototype"
+		class="com.chandu.springcoreworkshop.MyPrototype" scope="prototype" />
+
+
+	<bean id="adr" abstract="true">
+		<property name="city" value="nellore" />
+		<property name="state" value="A.P" />
+
+	</bean>
+
+	<bean id="dadr"
+		class="com.chandu.springcoreworkshop.DetailedAddress" parent="adr">
+		<property name="hno" value="1-110B" />
+		<property name="distict" value="nellore" />
+	</bean>
+
+<!-- collection merging -->
+<!-- <bean id="parent" abstract="true" class="com.chandu.springcoreworkshop.CollectionMerge">
+<property name="userData">
+<props>
+<prop key="firstName">chandu</prop>
+<prop key="lastName">sekhar</prop>
+</props>
+</property>
+</bean>
+
+<bean id="child" parent="parent" >
+<property name="userData">
+<props merge="true">
+<prop key="firstName">chandra</prop>
+</props>
+</property>
+</bean> -->
+</beans>          
